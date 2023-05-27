@@ -1,0 +1,18 @@
+{
+  "name": "share",
+  "version": "0.1.0",
+  "description": "Share self-hosted media with pretty good privacy",
+  "private": true,
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "ingest": "cd ./ingest && bash ./ingest.sh"
+  },
+  "author": "Brian Zelip",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "dotenv": "^16.0.3",
+    "papaparse": "^5.4.1"
+  }
+}

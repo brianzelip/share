@@ -1,0 +1,56 @@
+{
+  "img": {
+    "og": [
+      "FileName",
+      "CreateDate",
+      "FileSize",
+      "Orientation",
+      "ImageSize",
+      "FileType",
+      "XResolution",
+      "YResolution",
+      "ImageWidth",
+      "ImageHeight",
+      "GPSLatitude",
+      "GPSLongitude",
+      "GPSAltitude",
+      "GPSImgDirectionRef",
+      "LensModel"
+    ],
+    "processed": [
+      "FileName",
+      "FileAccessDate",
+      "FileSize",
+      "ImageSize",
+      "ImageWidth",
+      "ImageHeight"
+    ],
+    "shasum": ["SHA256", "SHA256_short"]
+  },
+  "vid": {
+    "og": [
+      "FileName",
+      "CreationDate",
+      "FileSize",
+      "ImageSize",
+      "FileType",
+      "XResolution",
+      "YResolution",
+      "ImageWidth",
+      "ImageHeight",
+      "GPSLatitude",
+      "GPSLongitude",
+      "GPSAltitude",
+      "GPSPosition"
+    ],
+    "processed": [
+      "FileName",
+      "FileAccessDate",
+      "FileSize",
+      "ImageSize",
+      "ImageWidth",
+      "ImageHeight"
+    ],
+    "shasum": ["SHA256", "SHA256_short"]
+  }
+}

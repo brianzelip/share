@@ -1,0 +1,25 @@
+:root {
+  --bg-dark: #333;
+  --bg-light: white;
+}
+body {
+  margin: 0;
+}
+main {
+  height: 100vh;
+}
+img,
+video {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  background-color: var(--bg-light);
+}
+@media (prefers-color-scheme: dark) {
+  img,
+  video {
+    background-color: var(--bg-dark);
+  }
+}
