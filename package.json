@@ -1,6 +1,6 @@
 {
   "name": "share",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Share self-hosted media with pretty good privacy",
   "private": true,
   "scripts": {
