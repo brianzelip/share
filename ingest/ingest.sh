@@ -3,6 +3,10 @@
 # Read environment variables
 source "../.env"
 
+# Get number of lines in each data file before ingest
+img_data_length_old=$(wc -l < ../_data/images.csv)
+vid_data_length_old=$(wc -l < ../_data/videos.csv)
+
 # Go to directory with exported original media
 cd ./originals
 
@@ -79,6 +83,16 @@ if [ $jpg_count -ge 1 ]; then
 
     # Clean up! remove temp files and processed images
     rm ./temp_images_*.{csv,json} ./processed/*.webp*
+
+    # Print success message
+    if [ $jpg_count -eq 1 ]; then
+        noun="image"
+        verb="was"
+    else
+        noun="images"
+        verb="were"
+    fi
+    echo "🎉 ${jpg_count} ${noun} ${verb} ingested!"
 fi
 
 if [ $mp4_count -ge 1 ]; then
@@ -144,6 +158,44 @@ if [ $mp4_count -ge 1 ]; then
     cp ../_data/videos.csv "$BACKUP_PATH"
 
     rm ./temp_videos_*.{csv,json} ./processed/*.{mp4,MP4}*
+
+    if [ $mp4_count -eq 1 ]; then
+        noun="video"
+        verb="was"
+    else
+        noun="videos"
+        verb="were"
+    fi
+    echo "🎉 ${mp4_count} ${noun} ${verb} ingested!"
 fi
 
-echo "🎉 MEDIA INGEST COMPLETE"
+# Get number of lines in each data file after ingest, print
+# published URLs to screen
+img_data_length_new=$(wc -l < ../_data/images.csv)
+vid_data_length_new=$(wc -l < ../_data/videos.csv)  
+
+if [ $img_data_length_new -gt $img_data_length_old ]; then
+    count=1
+    echo "📷 New images:"
+
+    for image in $(cat ./_data/images.csv | tail \
+    -n $(($img_data_length_new - $img_data_length_old)) | cut \
+    -d, -f29)
+    do
+        echo "${count}. ${image}"
+        count=$((count+1))
+    done
+fi
+
+if [ $vid_data_length_new -gt $vid_data_length_old ]; then
+    count=1
+    echo "📹 New videos:"
+
+    for video in $(cat ./_data/videos.csv | tail \
+    -n $(($vid_data_length_new - $vid_data_length_old)) | cut \
+    -d, -f26)
+    do
+        echo "${count}. ${video}"
+        count=$((count+1))
+    done
+fi

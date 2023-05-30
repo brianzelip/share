@@ -16,6 +16,8 @@ A solution for self-hosted sharing of videos and images over the web with modera
 
 ### Prerequisites
 
+#### Install dependencies
+
 The following tools are required for the scripts above to work (Homebrew install commands provided for macOS and Linux):
 
 - [Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>)
@@ -31,6 +33,18 @@ Install the Node.js dependencies to generate the static site by running the foll
 ```sh
 npm install
 ```
+
+#### Create .env for secrets
+
+Create a file named `.env` in the project root for storing secrets. This file is gitignored. The following variables are needed:
+
+- `SITE_NAME`
+- `SITE_AUTHOR`
+- `SITE_DESCRIPTION`
+- `CDN_BASE` (URI path with out the published file name, include trailing slash)
+- `WWW_BASE` (site url, include trailing slash)
+- `BACKUP_PATH` (assumes a local directory connected to cloud storage)
+- `S3_BUCKET`
 
 ## System overview
 

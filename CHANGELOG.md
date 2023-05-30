@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- [ ] add a script for generating an index of all of the media organized by batch
+- [x] add to readme the required .env vars
+- [ ] add tests
+- [x] move the console log at the end of the ingest file to the end of each ingest section, and provide a summary of how many files were ingested.
+- [x] console log the links to each page from the ingested media once ingestion is complete
+
 ## [1.0.0] - 2023-05-28
 
 ### Added
